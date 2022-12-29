@@ -31,7 +31,7 @@ const AdPage = () => {
       debugger
       setTimeout(() => {
         navigate('/');
-      }, 1500);
+      }, 1000);
     } catch (err) {
       setError(err);
     }
