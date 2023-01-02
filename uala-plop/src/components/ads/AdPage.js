@@ -24,11 +24,11 @@ const AdPage = () => {
       setIsFetching(true);
 
       await deleteAd(id);
-      debugger
+
       setIsDeleted(true);
-      debugger
+
       setIsFetching(false)
-      debugger
+
       setTimeout(() => {
         navigate('/');
       }, 1000);
