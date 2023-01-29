@@ -2,21 +2,24 @@ import styles from './BurgerMenu.module.css';
 import burguerPic from '../../../assets/menu.svg';
 import Button from '../Button.js';
 import { Link } from 'react-router-dom';
-import { useRef } from 'react';
+import { useState } from 'react';
+
 
 const BurgerMenu = ({ onLogout }) => {
-  const checkBoxElement = useRef();
-  const offCheck = () => {
-    checkBoxElement.current.checked = false;
-  }; //cambiar funcion a estado
+  const [check, setCheck] = useState(false);
+
+  const handleCheck = () => setCheck(!check);
+
+  const offCheck = () => setCheck(false);
 
   return (
     <nav className={styles.burger__menu__wrapper}>
-      <label htmlFor='menu' className={styles.burger__menu__label}>
+      <label htmlFor='menu' className={styles.burger__menu__label} >
         <img src={burguerPic} className={styles.burger__menu__img} alt='Menu' />
       </label>
       <input
-        ref={checkBoxElement}
+        onChange={handleCheck}
+        checked={check}
         type='checkbox'
         id='menu'
         className={styles.burger__menu__input}
